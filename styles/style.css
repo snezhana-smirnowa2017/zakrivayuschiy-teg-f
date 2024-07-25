@@ -170,7 +170,6 @@
 .card__img-wrapper {
   position: relative;
   border: 2px solid var(--accent-color, #000000);
-  
 }
 
 .card__label {
@@ -179,7 +178,7 @@
   mix-blend-mode: hard-light;
   font-family: var(--accent-font-family, "PressStart2P", fantasy);
   text-shadow: 1px 1px 0 var(--page-background-color, #ffffff),
-               -1px -1px 0 var(--page-background-color, #ffffff);
+    -1px -1px 0 var(--page-background-color, #ffffff);
   font-size: 14px;
   text-transform: uppercase;
   right: 25px;
@@ -187,8 +186,10 @@
   opacity: 50%;
 }
 
-@supports(-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) {
-  .card__label { -webkit-text-stroke: 1px var(--page-background-color, #ffffff); }
+@supports (-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--page-background-color, #ffffff);
+  }
 }
 
 @media (width < 376px) {
@@ -215,7 +216,7 @@
   padding: 25px;
   display: grid;
   gap: 27px;
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 .like__wrapper {
@@ -248,7 +249,7 @@
 .card__like-button {
   inline-size: 130px;
   block-size: 38px;
-  text-align: center ;
+  text-align: center;
 }
 
 .button__text {
@@ -280,13 +281,13 @@
 .floppy_icon {
   display: flex;
   inline-size: 21px;
-  block-size: 21px; 
+  block-size: 21px;
 }
 
 @media (width < 376px) {
   .floppy_icon {
     inline-size: 28px;
-    block-size: 28px; 
+    block-size: 28px;
   }
 }
 
@@ -329,11 +330,11 @@
   max-inline-size: 355px;
   border: 2px solid var(--accent-color, #000000);
   padding: 30px 30px;
-  font-family: var(--accent-font-family, "PressStart2P", fantasy); 
-  font-size: 14px; 
-  font-weight: var( --text-font-weight, 400);
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  font-weight: var(--text-font-weight, 400);
   color: var(--accent-color, #000000);
-  text-transform: uppercase; 
+  text-transform: uppercase;
   background-color: var(--page-background-color, #ffffff);
   line-height: 21px;
 }
@@ -346,7 +347,7 @@ dialog[open] {
 
 #dialog-id::backdrop {
   opacity: 0.75;
-  background-color:#000000;
+  background-color: #000000;
 }
 
 .dialog__content {
@@ -363,7 +364,7 @@ dialog[open] {
 
 .dialog__button {
   inline-size: 100%;
-  padding: 12.5px 0; 
+  padding: 12.5px 0;
 }
 
 /* фильтры на картинки */
