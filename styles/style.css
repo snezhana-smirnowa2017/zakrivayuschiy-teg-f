@@ -17,4 +17,384 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font-family, sans-serif);
+  font-variation-settings: "wght" var(--text-font-weight, 400);
+  color: var(--accent-color);
+  background-color: var(--page-background-color, #ffffff);
+  background-image: var(--page-background-image);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding-block-start: 100px;
+}
+
+/* стили для header */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  border: 2px solid var(--accent-color, #000000);
+  background: var(--page-background-color, #ffffff);
+  max-inline-size: 700px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+@media (width < 376px) {
+  .header {
+    inline-size: 100%;
+  }
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+}
+
+.header__subtitle {
+  padding-block-start: 20px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.header__theme-menu {
+  padding-block-start: 25px;
+  padding-block-end: 22px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: 11px;
+}
+
+.theme-menu__button {
+  position: relative;
+  appearance: none;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: arrow 0.5s infinite ease-in-out;
+  left: -12px;
+}
+
+/* кнопоки переключения тем и эффекты при разных состояниях */
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.theme-menu__button:not(:disabled)::after {
+  content: "";
+  position: absolute;
+  inline-size: 100%;
+  block-size: 2px;
+  display: block;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* стили для main */
+.main {
+  display: grid;
+  justify-items: center;
+}
+
+.card-list {
+  list-style-type: none;
+  display: grid;
+  align-items: center;
+  gap: 50px;
+  padding-block-start: 100px;
+  padding-block-end: 57px;
+}
+
+.card-list__item {
+  display: grid;
+  margin: 0 auto;
+  border: 2px solid var(--accent-color, #000000);
+  background: var(--page-background-color, #ffffff);
+  max-inline-size: 696px;
+}
+
+@media (width < 376px) {
+  .card-list__item {
+    inline-size: 100%;
+  }
+}
+
+.card__title {
+  font-variation-settings: "wght" var(--title-font-weight, 700);
+  font-size: 18px;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+.card__img-wrapper {
+  position: relative;
+  border: 2px solid var(--accent-color, #000000);
+  
+}
+
+.card__label {
+  position: absolute;
+  z-index: 1;
+  mix-blend-mode: hard-light;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  text-shadow: 1px 1px 0 var(--page-background-color, #ffffff),
+               -1px -1px 0 var(--page-background-color, #ffffff);
+  font-size: 14px;
+  text-transform: uppercase;
+  right: 25px;
+  top: 25px;
+  opacity: 50%;
+}
+
+@supports(-webkit-text-stroke: 1px var(--page-background-color, #ffffff)) {
+  .card__label { -webkit-text-stroke: 1px var(--page-background-color, #ffffff); }
+}
+
+@media (width < 376px) {
+  .card__label {
+    right: 13px;
+  }
+}
+
+.card__img {
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+  display: inline-block;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (width < 376px) {
+  .card__img {
+    min-block-size: 100%;
+  }
+}
+
+.card__content {
+  padding: 25px;
+  display: grid;
+  gap: 27px;
+  font-size: 18px; 
+}
+
+.like__wrapper {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+  padding: 0 25px 25px 0;
+  color: currentColor;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  color: currentColor;
+  padding: 0;
+  background: transparent;
+  transition: 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--accent-color, #000000);
+  cursor: pointer;
+  appearance: none;
+  background-color: var(--page-background-color, ffffff);
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  text-align: center ;
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+}
+
+.button__save {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 18.5px 20px;
+  inline-size: 340px;
+  block-size: 55px;
+  margin-block-end: 102px;
+}
+
+@media (width < 376px) {
+  .button__save {
+    flex-direction: column;
+    inline-size: 310px;
+    block-size: 80px;
+  }
+}
+
+.floppy_icon {
+  display: flex;
+  inline-size: 21px;
+  block-size: 21px; 
+}
+
+@media (width < 376px) {
+  .floppy_icon {
+    inline-size: 28px;
+    block-size: 28px; 
+  }
+}
+
+/* состояния кнопок save и like */
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px var(--accent-color, #000000);
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus-visible {
+  outline: none;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background: var(--accent-color, #000000);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text,
+.floppy_icon {
+  color: var(--text-button-color, #ffffff);
+  mix-blend-mode: difference;
+}
+
+/* стили диалогового окна */
+#dialog-id {
+  max-inline-size: 355px;
+  border: 2px solid var(--accent-color, #000000);
+  padding: 30px 30px;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy); 
+  font-size: 14px; 
+  font-weight: var( --text-font-weight, 400);
+  color: var(--accent-color, #000000);
+  text-transform: uppercase; 
+  background-color: var(--page-background-color, #ffffff);
+  line-height: 21px;
+}
+
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#dialog-id::backdrop {
+  opacity: 0.75;
+  background-color:#000000;
+}
+
+.dialog__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dialog__icon {
+  inline-size: 39px;
+  block-size: 39px;
+  flex-shrink: 0;
+}
+
+.dialog__button {
+  inline-size: 100%;
+  padding: 12.5px 0; 
+}
+
+/* фильтры на картинки */
+.filter__contrast {
+  filter: contrast(150%);
+}
+
+.filter_blur {
+  filter: blur(3px);
+}
+
+.filter__brightness {
+  filter: brightness(30%);
+}
+
+.filter__sepia {
+  filter: sepia(0.6);
+}
+
+.filter__hue-rotate {
+  filter: hue-rotate(0.5turn);
+}
+
+.filter__saturate {
+  filter: saturate(200%);
+}
+
+.filter__grayscale {
+  filter: grayscale(100%);
+}
+
+.filter__contrast-opacity {
+  filter: contrast(30%) opacity(50%);
 }
