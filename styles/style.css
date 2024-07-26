@@ -65,12 +65,14 @@
 }
 
 .theme-menu__list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  margin: 0 auto;
+  gap: 11px;
+  padding-inline-start: 20px;
+  text-align: left;
+  inline-size: 84px;
   align-items: center;
   justify-content: center;
-  text-align: left;
-  gap: 11px;
 }
 
 .theme-menu__button {
@@ -83,19 +85,21 @@
   background: transparent;
   cursor: pointer;
   text-align: left;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
   animation: arrow 0.5s infinite ease-in-out;
+  animation-direction: alternate;
   left: -12px;
 }
 
 /* кнопоки переключения тем и эффекты при разных состояниях */
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+
 }
 
 .theme-menu__button:focus {
@@ -109,7 +113,6 @@
 
 .theme-menu__button:disabled {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -169,7 +172,8 @@
 
 .card__img-wrapper {
   position: relative;
-  border: 2px solid var(--accent-color, #000000);
+  border-block-start: 2px solid var(--accent-color, #000000);
+  border-block-end: 2px solid var(--accent-color, #000000);
 }
 
 .card__label {
@@ -199,11 +203,21 @@
 }
 
 .card__img {
+  /* position: relative;
   inline-size: 100%;
+  block-size: 100%; 
   aspect-ratio: 1/1;
   display: inline-block;
   object-fit: cover;
+  object-position: center; */
+
+
+  object-fit: cover;
   object-position: center;
+  vertical-align: middle;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: 1/1;
 }
 
 @media (width < 376px) {
@@ -222,6 +236,7 @@
 .like__wrapper {
   display: flex;
   justify-content: end;
+  align-items: center;
   gap: 5px;
   padding: 0 25px 25px 0;
   color: currentColor;
@@ -257,14 +272,15 @@
   z-index: 1;
   font-family: var(--accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
+ 
 }
 
 .button__save {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 8px;
   margin: 0 auto;
-  padding: 18.5px 20px;
   inline-size: 340px;
   block-size: 55px;
   margin-block-end: 102px;
@@ -292,13 +308,13 @@
 }
 
 /* состояния кнопок save и like */
-.button:focus {
+.button:focus-visible {
   outline: none;
   box-shadow: 2px 2px 0px 0px var(--accent-color, #000000);
   transition: box-shadow 0.3s ease;
 }
 
-.button:focus-visible {
+.button:focus {
   outline: none;
 }
 
