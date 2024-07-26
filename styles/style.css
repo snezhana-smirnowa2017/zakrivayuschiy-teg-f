@@ -99,7 +99,6 @@
 /* кнопоки переключения тем и эффекты при разных состояниях */
 .theme-menu__button:hover {
   opacity: 0.6;
-
 }
 
 .theme-menu__button:focus {
@@ -203,20 +202,11 @@
 }
 
 .card__img {
-  /* position: relative;
   inline-size: 100%;
-  block-size: 100%; 
-  aspect-ratio: 1/1;
-  display: inline-block;
-  object-fit: cover;
-  object-position: center; */
-
-
+  block-size: 100%;
   object-fit: cover;
   object-position: center;
   vertical-align: middle;
-  inline-size: 100%;
-  block-size: 100%;
   aspect-ratio: 1/1;
 }
 
@@ -272,7 +262,6 @@
   z-index: 1;
   font-family: var(--accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
- 
 }
 
 .button__save {
