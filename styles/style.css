@@ -262,6 +262,12 @@
   z-index: 1;
   font-family: var(--accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
+  text-transform: uppercase;
+}
+
+.card__like-button span,
+.button__save span {
+  text-transform: none;
 }
 
 .button__save {
